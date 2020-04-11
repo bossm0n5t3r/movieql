@@ -1,19 +1,19 @@
 let movies = [
   {
-    id: "0",
+    id: 0,
     name: "워크래프트 - 전쟁의 서막",
     score: 88
   },
   {
-    id: "1",
+    id: 1,
     name: "하울의 움직이는 성",
     score: 80,
   },{
-    id: "2",
+    id: 2,
     name: "타짜",
     score: 100,
   },{
-    id: "3",
+    id: 3,
     name: "킹스맨 - 시크릿 에이전트",
     score: 99,
   },
@@ -22,12 +22,12 @@ let movies = [
 export const getMovies = () => movies;
 
 export const getById = (id) => {
-  const filteredMovies = movies.filter(movie => movie.id === String(id));
+  const filteredMovies = movies.filter(movie => movie.id === id);
   return filteredMovies[0];
 }
 
 export const deleteMovie = (id) => {
-  const cleanedMovies = movies.filter(movie => movie.id !== String(id));
+  const cleanedMovies = movies.filter(movie => movie.id !== id);
   if (movies.length > cleanedMovies.length) {
     movies = cleanedMovies;
     return true;
