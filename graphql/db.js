@@ -1,49 +1,47 @@
-export const people = [
+let movies = [
   {
     id: "0",
-    name: "Lizotte",
-    age: 24,
-    gender: "female"
+    name: "워크래프트 - 전쟁의 서막",
+    score: 88
   },
   {
     id: "1",
-    name: "Young",
-    age: 68,
-    gender: "female"
+    name: "하울의 움직이는 성",
+    score: 80,
   },{
     id: "2",
-    name: "Chapman",
-    age: 68,
-    gender: "male"
+    name: "타짜",
+    score: 100,
   },{
     id: "3",
-    name: "Miles",
-    age: 65,
-    gender: "male"
-  },{
-    id: "4",
-    name: "Gough",
-    age: 58,
-    gender: "female"
-  },{
-    id: "5",
-    name: "Gillard",
-    age: 25,
-    gender: "female"
-  },{
-    id: "6",
-    name: "Levesque",
-    age: 30,
-    gender: "male"
-  },{
-    id: "7",
-    name: "Porter",
-    age: 61,
-    gender: "male"
+    name: "킹스맨 - 시크릿 에이전트",
+    score: 99,
   },
 ];
 
-export const getById = id => {
-  const filteredPeople = people.filter(person => person.id === String(id));
-  return filteredPeople[0];
+export const getMovies = () => movies;
+
+export const getById = (id) => {
+  const filteredMovies = movies.filter(movie => movie.id === String(id));
+  return filteredMovies[0];
+}
+
+export const deleteMovie = (id) => {
+  const cleanedMovies = movies.filter(movie => movie.id !== String(id));
+  if (movies.length > cleanedMovies.length) {
+    movies = cleanedMovies;
+    return true;
+  } else {
+    return false;
+  }
+}
+
+export const addMovie = (name, score) => {
+  const newMovie = {
+    id: `${movies.length + 1}`,
+    name,
+    score
+  }
+  movies.push(newMovie);
+  return newMovie;
 }
